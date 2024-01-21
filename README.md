@@ -1,24 +1,59 @@
-# Scala_Course
+# Climate Change Dashboard
 ## Overview
-Functional-based programming in Scala from École Polytechnique Fédérale de Lausanne.
-
+Implement a complete application processing several gigabytes of data. 
 ### Purpose
-This course was split into 5 topics
+Create an interactive dashboard of climate data to visualize the evolution of temperatures and temperature deviations over time.
+Use weather station data to interpolate the average temperature of each point on the globe over the past ten years- coloring in acordance to its temperature. 
+Then  display the user's selection with Functional Reactive Programming.
+## Structure
+### Data Extraction - Extraction.scala
+Collected 2 csv from the [National Center for Environmental Information](https://www.ncei.noaa.gov/):
 
-1) *Functional Programming Principles in Scala* -
-Introduces functional-based programming with immutable objects, using recursive techniques and higher-order functions.
+1) Weather station’s locations: stations.csv file
+   - STN identifier
+   - WBAN identifier
+   - Latitude
+   - Longitude
+2) Temperature records for a year: 1975.csv, 1976.csv, etc.
+   - STN identifier
+   - WBAN identifier
+   - Month
+   - Day
+   - Temperature (in degrees Fahrenheit)
+     
+### Raw Data Visualization - Visualization.scala
+3 algorithms we must create:
 
-2) *Functional Program Design in Scala* -
-Reviews mathematical concepts like Monoids and Tree Structures through the Type-Directed and Functional Reactive Programming Paradigms- uncovering the advantages of an FRP approach.
+1) **Spatial Interpolation**: 
+To find the temperature at a coordinate not located at a weather station, we must interpolate its
+true distance around the earth
 
-3) *Parallel Programming* -
-Split and balance workloads to optimize algorithms on specific hardware.
+3) **Linear Interpolation**:
+To determine what color each pixel should be represented as.
 
-4) *Big Data Analysis with Scala and Spark* -
-Optimize large collections with Sparks RDDs, construct DataFrame for relational manipulation, and query big data efficiently.
+4) **Visualization**: 
+Now we'll build an image using Java's scrimage 
 
-5) *Functional Programming in Scala Capstone* -
-Build a data-intensive weather dashboard allowing users to analyze climate change.
+### Interactive visualization in a Web app - Interaction.scala
+To efficiently load the required data for our application we have to decompose this large dataset. 
 
-### About the Program
-A self-paced course, requiring students to submit 4-5 assignments for each topic. Modules are submitted through sbt and are graded on how well different algorithms compile.  
+Following our intuition about GIS data we'll use Mercator projection to represent the earth as pixels. 
+We'll create an image (composed of tiles) that represents a subsection of our projected map. 
+Then, tiles will be computed based on their initial value.
+
+The next implementation in Interation2.scala will allow a user to actively filter and change which tiles are
+computed and displayed.
+
+### Data Manipulation - Manipulation.scala
+This Module is used to Spatially interpret the temperature of what each pixel should be represented as.
+To do this we have to implement 2 methods
+
+1) **Average**: computes the average temperature of the tiles color representation 
+2) **Deviation**: computes the deviations from its normal temperature
+
+### Value-added information visualization - Visualization2.scala
+
+### Dashboard Demo
+![Demo](https://github.com/brand0nM/Scala_Course/assets/79609464/b3954635-580a-405b-b179-60fe4e9ca618)
+
+## Summary

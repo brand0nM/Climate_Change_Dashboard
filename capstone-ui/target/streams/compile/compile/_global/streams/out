@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E018] Syntax Error: /Users/brandonmontalvo/Documents/GitHub/Scala_Course/5-Capstone/observatory/capstone-ui/../src/main/scala/observatory/Interaction2.scala:33:35 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m33 |[0m          (-[31m7.0[0m, Color([31m0[0m, [31m0[0m, [31m255[0m)),), [0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                   ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                   expression expected but [31m')'[0m found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -1,0 +1,64 @@
+[0m[[0m[0minfo[0m] [0m[0mFast optimizing /Users/brandonmontalvo/Documents/GitHub/Scala_Course/5-Capstone/observatory/capstone-ui/target/scala-3.3.0/capstoneui-fastopt[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: 1127 us[0m
+[0m[[0m[31merror[0m] [0m[0morg.scalajs.ir.IRVersionNotSupportedException: Failed to deserialize a file compiled with Scala.js 1.12 (supported up to: 1.5): /Users/brandonmontalvo/Documents/GitHub/Scala_Course/5-Capstone/observatory/capstone-ui/target/scala-3.3.0/classes/observatory/Signal$Var.sjsir[0m
+[0m[[0m[31merror[0m] [0m[0mYou may need to upgrade the Scala.js sbt plugin to version 1.12 or later.[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.sbtplugin.ScalaJSPluginInternal$.enhanceIRVersionNotSupportedException(ScalaJSPluginInternal.scala:83)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.sbtplugin.ScalaJSPluginInternal$.$anonfun$scalaJSStageSettings$19(ScalaJSPluginInternal.scala:227)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.FileFunction$.$anonfun$cached$1(FileFunction.scala:80)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.FileFunction$.$anonfun$cached$4(FileFunction.scala:153)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.Difference.apply(Tracked.scala:414)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.Difference.apply(Tracked.scala:394)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.FileFunction$.$anonfun$cached$3(FileFunction.scala:149)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.Difference.apply(Tracked.scala:414)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.Difference.apply(Tracked.scala:389)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.util.FileFunction$.$anonfun$cached$2(FileFunction.scala:148)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.sbtplugin.ScalaJSPluginInternal$.$anonfun$scalaJSStageSettings$18(ScalaJSPluginInternal.scala:239)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$3.$anonfun$apply$2(Transform.scala:46)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$4.work(Transform.scala:68)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$2(Execute.scala:282)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.work(Execute.scala:291)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$1(Execute.scala:282)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.CompletionService$$anon$2.call(CompletionService.scala:64)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.FutureTask.run(FutureTask.java:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.FutureTask.run(FutureTask.java:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Thread.java:748)[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: org.scalajs.ir.IRVersionNotSupportedException: Failed to deserialize a file compiled with Scala.js 1.12 (supported up to: 1.5): /Users/brandonmontalvo/Documents/GitHub/Scala_Course/5-Capstone/observatory/capstone-ui/target/scala-3.3.0/classes/observatory/Signal$Var.sjsir[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.linker.interface.unstable.IRFileImpl$$anonfun$withPathExceptionContext$1.applyOrElse(IRFileImpl.scala:62)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.linker.interface.unstable.IRFileImpl$$anonfun$withPathExceptionContext$1.applyOrElse(IRFileImpl.scala:58)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Failure.recover(Try.scala:234)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.Future.$anonfun$recover$1(Future.scala:395)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1402)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: org.scalajs.ir.IRVersionNotSupportedException: This version (1.12) of Scala.js IR is not supported. Supported versions are up to 1.5[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.ir.VersionChecks.checkSupported(ScalaJSVersions.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.ir.Serializers$Deserializer.readHeader(Serializers.scala:1007)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.ir.Serializers$Deserializer.deserializeEntryPointsInfo(Serializers.scala:966)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.ir.Serializers$.$anonfun$deserializeEntryPointsInfo$1(Serializers.scala:52)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.ir.Serializers$.withBigEndian(Serializers.scala:67)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.ir.Serializers$.deserializeEntryPointsInfo(Serializers.scala:52)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalajs.linker.PathIRFile$PathIRFileImpl.$anonfun$entryPointsInfo$1(PathIRFile.scala:39)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Success.$anonfun$map$1(Try.scala:255)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Success.map(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1402)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)[0m
+[0m[[0m[31merror[0m] [0m[0m(capstoneUI / Compile / [31mfastLinkJS[0m) org.scalajs.ir.IRVersionNotSupportedException: Failed to deserialize a file compiled with Scala.js 1.12 (supported up to: 1.5): /Users/brandonmontalvo/Documents/GitHub/Scala_Course/5-Capstone/observatory/capstone-ui/target/scala-3.3.0/classes/observatory/Signal$Var.sjsir[0m
+[0m[[0m[31merror[0m] [0m[0mYou may need to upgrade the Scala.js sbt plugin to version 1.12 or later.[0m

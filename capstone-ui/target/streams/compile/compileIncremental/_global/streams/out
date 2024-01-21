@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 48 products, 6 sources, 5 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/capstone-ui/../src/main/scala/observatory/models.scala, ${BASE}/capstone-ui/../src/main/scala/observatory/common.scala, ${BASE}/capstone-ui/src/main/scala/observatory/JSMain.scala, ${BASE}/capstone-ui/src/main/scala/leaflet/L.scala, ${BASE}/capstone-ui/../src/main/scala/observatory/Interaction2.scala, ${BASE}/capstone-ui/../src/main/scala/observatory/Signal.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
