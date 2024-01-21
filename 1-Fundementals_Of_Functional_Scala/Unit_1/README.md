@@ -1,4 +1,4 @@
-# Functions and Evaluation
+# Unit 1: Functions and Evaluation
 ## Lecture 1.1 - Programming Paradigms
 
 The primary objective is to teach you functional programming from first principles, 
@@ -6,45 +6,48 @@ you're going to see functional programs, methods to construct them, and ways to 
 
 #### Practice Quiz 1.1
 
-	1) Select the statements that are true about functional programming
+1) Select the statements that are true about functional programming
+
+	- helps with the complexity of concurrency and parallelism
 	
-		- helps with the complexity of concurrency and parallelism
-		
-			Correct, Immutable data can be safely shared by multiple threads, 
-			and higher-order functions are convenient to model asynchronous control-flow
-		
-		- focuses on functions and immutable data
-		
-			Correct, Immutable data, functions and higher order functions are the key concepts in FP
-		
-		- is possible only in functional programming languages
-		
-		- relies on mutable variables, loops and assignments.
+		Correct, Immutable data can be safely shared by multiple threads, 
+		and higher-order functions are convenient for modeling asynchronous control-flow
+	
+	- focuses on functions and immutable data
+	
+		Correct, Immutable data, functions, and higher-order functions are the key concepts in FP
+	
+	- is possible only in functional programming languages
+	
+	- relies on mutable variables, loops, and assignments.
 
 ## Lecture 1.2 - Elements of Programming
 
 Every non-trival Programming Language provides:
-	
-	- primitive expressions represent the simplest elements
-	- way to combine expression
-	- ways to abstract expressions, introduce name for which expression can be referred to
+
+- primitive expressions represent the simplest elements
+- way to combine expression
+- ways to abstract expressions, introduce names for which expression can be referred to
 
 ### Read-Eval-Print-Loop
 	
 REPL is an interactive shell that allows for immediate feedback from inputs.
-To start the REPL type scala in terminal (must have Java)
+To start the REPL type scala in the terminal (must have Java)
 
 ### Evaluation
 
-A "Name" is evaluated by replacing it with the right hand side of its definition. 
+A "Name" is evaluated by replacing it with the right-hand side of its definition. 
 In a call-by-value expression the process terminates once fully evaluated; 
-In call-by-name the expression only checks data types conformity and lazly compute value as needed. 
-	
-	1) Take left-most operator
-	2) Evaluate its operands (left before right)
-	3) Apply the operator to the operands
+In call-by-name, the expression only checks data type conformity and lazly computes value as needed. 
 
-	EX1: 
+1) Take the left-most operator
+ 
+2) Evaluate its operands (left before right)
+ 
+3) Apply the operator to the operands
+
+EX1: 
+
 	scala> def pi = 3.1415
 	scala> def radius = 10
 	scala> val circum = (2*pi)*radius
@@ -53,7 +56,8 @@ In call-by-name the expression only checks data types conformity and lazly compu
 		(6.28318)*10
 		vaL circum: Double = 62.8318
 
-	EX (call-by-value):
+EX (call-by-value):
+
 	scala> def square(x:Double): Double = x*x
 	scala> def sumOfSquare(x:Double, y:Double): Double = x+x
 	scala> val sum = sumOfSquares(3, 2+2)
@@ -65,7 +69,8 @@ In call-by-name the expression only checks data types conformity and lazly compu
 		9 + 16
 		val sum: Double = 25
 
-	EX (call-by-name):
+EX (call-by-name):
+
 	scala> def sumOfSquare(x: => Double, y: => Double): Double = x+x
 	scala> val sum = sumOfSquares(3, 2+2)
 		square(3) + square(2+2)
@@ -78,9 +83,9 @@ In call-by-name the expression only checks data types conformity and lazly compu
 		val sum: Double = 25
 
 
-This subsitution model derives from lambda calculus- gave rise to programming
+This substitution model derives from lambda calculus- gave rise to programming
 
-#### Primative Data Types
+#### Primitive Data Types
 
 	Int 32-bit integers
 	Long 64-bit integers
@@ -114,26 +119,26 @@ Call-by-name: the function argument is not evaluated if the corresponding parame
 		call-by-value, want to reduce 3+4 first otherwise it will be evaluated twice
 
 	scala> test(7, 2*4)
-		call-by-name, want to avoid evaluating 2*4 because its unsed in function body
+		call-by-name, want to avoid evaluating 2*4 because its unused in function body
 
 	scala> test(3+4, 2*4)
 		call-by-value for the x position and call-by-name for y for reasons above
 
 #### Practice Quiz 1.2
 
-	1) in the call-by-name evaluation strategy
-		
-		- every expression reduces to a value in a finite number of steps
-		
-		- functions are applied to unreduced arguments
+1) in the call-by-name evaluation strategy
 	
-			Correct, The interpreter does not reduce the arguments before rewriting the function application
+	- every expression reduces to a value in a finite number of steps
 	
-		- functions are applied to reduced arguments
+	- functions are applied to unreduced arguments
+
+		Correct, The interpreter does not reduce the arguments before rewriting the function application
+
+	- functions are applied to reduced arguments
 
 ## Lecture 1.3 - Evaluation Strategies and Termination
 
-If CBV evaluation of an expression e terminates, then CBN evaluation of e terminates too (Other direction not true).
+If the CBV evaluation of an expression e terminates, then the CBN evaluation of e terminates too (Other direction not true).
 
 	scala> def loop: Int = loop
 	scala> def first(x: Int, y: Int) = x
@@ -154,37 +159,37 @@ If CBV evaluation of an expression e terminates, then CBN evaluation of e termin
 
 #### Practice Quiz 1.3
 
-	1) In Scala
-		
-		- all-by-value is the default
+1) In Scala
+	
+	- all-by-value is the default
 
-			Correct
-		
-		- if the type of a function parameter starts with a =>, then it uses call-by-value
-		
-		- call-by-name is not possible
-		
-		- call-by-value is not possible
-		
-		- if the type of a function parameter starts with a =>, then it uses call-by-name
+		Correct
+	
+	- if the type of a function parameter starts with a =>, then it uses call-by-value
+	
+	- call-by-name is not possible
+	
+	- call-by-value is not possible
+	
+	- if the type of a function parameter starts with a =>, then it uses call-by-name
 
-			Correct, In `def constOne(x: Int, y: => Int) = 1', 'y' is a call-by-name parameter
-		
-		- call-by-name is the default
+		Correct, In `def constOne(x: Int, y: => Int) = 1', 'y' is a call-by-name parameter
+	
+	- call-by-name is the default
 
-	2) To introduce a definition evaluated only when it is used, we use the keyword
+2) To introduce a definition evaluated only when it is used, we use the keyword
 
-		- def
+	- def
 
-			Correct, 'def' introduces a definition where the right hand side is evaluated on each use
+		Correct, 'def' introduces a definition where the right hand side is evaluated on each use
 
-		- val
+	- val
 
 ## Lecture 1.4 - Conditionals and Value Definitions
 
 Scala has conditional expression if-then-else
 
-Turnary definitions dont exist in scala must use if-then-else:
+Turnary definitions don't exist in scala must use if-then-else:
 
 	scala> def abs(x: Int) = if x>= 0 then x else -x
 		x >= 0 is a predicate of type Boolean
@@ -196,9 +201,7 @@ Boolean Expressions b can be composed of:
 	b && b		// Conjunction
 	b || b		// Disjunction
 
-and of unual comparision op[erations:
-
-	e <= e, e >= e, e < e, e > e, e == e, e != e
+and of usual comparison operations: `e <= e, e >= e, e < e, e > e, e == e, e != e`
 
 Rewrite rules for Booleans (Here are reduction rules for Boolean expressions (e is an arbitrary expression)):
 
@@ -213,9 +216,9 @@ Rewrite rules for Booleans (Here are reduction rules for Boolean expressions (e 
 
 ### Value Definitions
 
-Function parameter can be passed by value or be passed by name. The same distiction applies to definitions. 
+Function parameters can be passed by value or be passed by name. The same distinction applies to definitions. 
 
-The def form is "by-name," its right hand side is evaluated on each use. There is also a val form, which is "by-value." Example:
+The def form is "by-name," and its right-hand side is evaluated on each use. There is also a val form, which is "by-value." Example:
 
 	scala> val x = 2
 	scala> val y = square(x)
@@ -226,7 +229,7 @@ Afterwards, the name refers to the value. For instance, y above refers to 4, not
 
 #### Value Definitions and Termination
 
-The difference between val and def becomes apparent when the right hand side of the loop does not terminate. Given, 
+The difference between val and def becomes apparent when the right-hand side of the loop does not terminate. Given, 
 
 	scala> def loop: Boolean = loop
 
@@ -240,15 +243,17 @@ A val will lead to an infinite loop
 
 #### Exercise 1.4.1
 
-Write functions and and or such that for all argument expressions x and y:
+Write functions and or such that for all argument expressions x and y:
 
-	and(x, y) == x && y
+**and(x, y) == x && y**
+
 	scala> def andComp(x: Boolean, y: => Boolean): Boolean = if x then y else false
 	scala> def loop: Boolean = loop
 	scala> val passingLoop = andComp(false, loop)
 	val passingLoop: Boolean = false
 
-	or(x, y) == x || y
+**or(x, y) == x || y**
+
 	scala> def orComp(x: Boolean, y: Boolean): Boolean = if(x) then true else if(y) then true else false
 
 ## Lecture 1.5 - Example: square roots with Newton's method
@@ -259,11 +264,11 @@ Calculate the square root of parameter x
 
 ### Classical Approach
 
-If squared guess is in neighborhood of 1/1000 of the number we're trying to find square root, terminate guess
+If squared guess is in the neighborhood of 1/1000 of the number we're trying to find the square root, terminate guess
 
 	scala> def isGoodEnough(guess: Double, x: Double): Boolean = if  math.abs(guess*guess-x) < 0.001 then true else false
 
-Find halfway point between values
+Find a halfway point between values
 
 	scala> def improve(guess: Double, x: Double): Double =  (guess + x/guess)/2
 
@@ -277,16 +282,17 @@ Newton's Approximation
 
 #### Exercise 1.5
 
-	1) The isGoodEnough subroutine is not precise for small numbers, leading to non-termination for very large numbers. Why?
+1) The isGoodEnough subroutine is not precise for small numbers, leading to non-termination for very large numbers. Why?
 
-		very large numbers can not be squared in the specified bit range
+	very large numbers can not be squared in the specified bit range
 
-	2) Design a different version of isGoodEnough that does not have these problems
+2) Design a different version of isGoodEnough that does not have these problems
 
-		scala> def isGoodEnough(guess: Double, x: Double): Boolean = if math.abs(guess - x / guess) < 0.001 then true else false
+		scala> def isGoodEnough(guess: Double, x: Double): Boolean = 
+			if math.abs(guess - x / guess) < 0.001 then true else false
 
-	3) Evaluate new isGoodEnough subroutine in context
-
+4) Evaluate new isGoodEnough subroutine in context
+   
 		scala> sqrt(0.001)
 		scala> sqrt(1.0e-21)
 		scala> sqrt(1.0e20)
@@ -294,25 +300,25 @@ Newton's Approximation
 
 #### Practice Quiz 1.5
 
-	1) Recursive functions
-		- are functions which include calls to themselves in their definition
+1) Recursive functions
+	- are functions which include calls to themselves in their definition
 
-			Correct, The 'sqrtIter' function in Lecture 7 contains a call to itself, it is a recursive function
-		
-		- always terminate
-		
-		- require an explicit return type in Scala
-		
-			Correct, the return type can be omitted in non-recursive functions 
-			but it is required by the compiler for recursive functions
-		
-		- are introduced by a dedicated keyword
+		Correct, The 'sqrtIter' function in Lecture 7 contains a call to itself, it is a recursive function
+	
+	- always terminate
+	
+	- require an explicit return type in Scala
+	
+		Correct, the return type can be omitted in non-recursive functions 
+		but it is required by the compiler for recursive functions
+	
+	- are introduced by a dedicated keyword
 
 ## Lecture 1.6 - Blocks and Lexical Scope
 
-If use function you dont access directly outside of another function (helper/auxciliary function), 
-its best practice to avoid "name space pollution," and put them inside the function where they are referenced: 
-process is known as **Nesting**.
+If use a function you don't access directly outside of another function (helper/auxiliary function), 
+its best practice to avoid "namespace pollution," and put them inside the function where they are referenced: 
+the process is known as **Nesting**.
 
 	scala> def sqrt(x: Double) = {
 			def sqrtIter(guess: Double, x: Double): Double = {
@@ -320,11 +326,12 @@ process is known as **Nesting**.
 				else sqrtIter(improve(guess, x), x)
 			}
 
-			// Auxciliary Functions
-			def isGoodEnough(guess: Double, x: Double): Boolean = if abs(square(guess) - x)<0.001 then true else false
+			// Auxiliary Functions
+			def isGoodEnough(guess: Double, x: Double): Boolean = 
+   				if abs(square(guess) - x)<0.001 then true else false
 			def improve(guess: Double, x: Double): Double =  (guess + x/guess)/2
 
-			// Helper of Auxciliary Functions
+			// Helper of Auxiliary Functions
 			def abs(x: Double): Double = if x>=0 then x else -x
 			def square(x: Double): Double = x*x
 
@@ -344,18 +351,19 @@ A block is delimited by braces {...}
 
 Contains a sequence of definitions or expressions. The last element of a block is an expression that defines its value. 
 Blocks are themselves expressions and can appear anywhere. 
-Scala 3 braces are optional around correctly indented expression that appear after =, then, else, ...
+Scala 3 braces are optional around correctly indented expressions that appear after =, then, else, ...
 
 	scala> def sqrt(x: Double) =
 			def sqrtIter(guess: Double, x: Double): Double =
 				if isGoodEnough(guess, x) then guess
 				else sqrtIter(improve(guess, x), x)
 
-			// Auxciliary Functions
-			def isGoodEnough(guess: Double, x: Double): Boolean = if abs(square(guess) - x)<0.001 then true else false
+			// Auxiliary Functions
+			def isGoodEnough(guess: Double, x: Double): Boolean = 
+   				if abs(square(guess) - x)<0.001 then true else false
 			def improve(guess: Double, x: Double): Double =  (guess + x/guess)/2
 
-			// Helper of Auxciliary Functions
+			// Helper of Auxiliary Functions
 			def abs(x: Double): Double = if x>=0 then x else -x
 			def square(x: Double): Double = x*x
 
@@ -386,9 +394,11 @@ Therefore we can simplify sqrt by eliminating redundant occurrences of the param
 				else sqrtIter(improve(guess))
 
 			// Auxciliary Functions
-			def isGoodEnough(guess: Double): Boolean = if abs(square(guess) - x)<0.001 then true else false
+			def isGoodEnough(guess: Double): Boolean = 
+   				if abs(square(guess) - x)<0.001 then true else false
 			def improve(guess: Double): Double =  (guess + x/guess)/2
  Assignment: Recursion
+ 
 			// Helper of Auxciliary Functions
 			def abs(x: Double): Double = if x>=0 then x else -x
 			def square(x: Double): Double = x*x
@@ -401,31 +411,31 @@ If there is more than one statement on a line, they need to be separated by semi
 
 	val y = x+1; y*y
 
-Similar to javaScript, could put semicolons at the end of everyline, but this would be extranious
+Similar to javaScript, could put semicolons at the end of every line, but this would be extraneous
 
 	val x = 1;
 
 #### Practice Quiz 1.6
 
-	1) Which statement is true about the following snippet?
+1) Which statement is true about the following snippet?
 
 		def f =
 			val x = 3
 			val y =
-		    		val xPlusOne = x + 1
-		    		xPlusOne * xPlusOne
-		  	def g(arg: Int): Int =
-		    		// POSITION 1
+				val xPlusOne = x + 1
+				xPlusOne * xPlusOne
+			def g(arg: Int): Int =
+				// POSITION 1
 		// POSITION 2
 
-		- At 'POSITION 2', it is possible to invoke the function 'g'
+	- At 'POSITION 2', it is possible to invoke the function 'g'
 
-		- At 'POSITION 1' it is possible to access xPlusOne
+	- At 'POSITION 1' it is possible to access xPlusOne
 
-		- At 'POSITION 1' it is possible to read the value of 'x'
+	- At 'POSITION 1' it is possible to read the value of 'x'
 
-			Correct, both 'x' and 'g' are defined inside the same block and 'g' is defined after 'x'. 
-			Inside the body of 'g' it is possible to access all variables defined before 'g' in 'f'
+		Correct, both 'x' and 'g' are defined inside the same block and 'g' is defined after 'x'. 
+		Inside the body of 'g' it is possible to access all variables defined before 'g' in 'f'
 
 ## Lecture 1.7 - Tail recursion
 
@@ -479,13 +489,11 @@ Consider factorial:
 		4*3*(if 2==0 then 1 else 2*factorial(2-1))
 		4*3*(if false then 1 else 2*factorial(2-1))
 			4*3*2*factorial(1)
-		4*3*2*(if 1==0 then 1 else 1*factorial(1-1))
-		4*3*2*(if false then 1 else 1*factorial(1-1))
+	implementf 1==0 then 1 else 1*factorial(1-1))
+		4*3*2*(if false  then 1 else 1*factorial(1-1))
 			4*3*2*1*factorial(0)
 		4*3*2*1*(if 0==0 then 1 else 0*factorial(0-1))
-		4*3*2*1*(if false then 1 else 0*factorial(0-1))
-		4*3*2*1*1
-		24
+		4*3*2*1*(if false then 1 else 0*factthat(0-1)tail-recursive		24
 
 What are differences between the two sequences?
 
@@ -502,19 +510,17 @@ In general, if the last action of a function consists of calling a function (whi
 
 #### Tail Recursion in Scala
 
-Scala can only use tail recursion to optimize functions with direct recurive calls (gcd example).
-To impliment such a function you must first:
+Scala can only use tail recursion to optimize functions with direct recursive calls (gcd example).
+To implement such a function you must first:
 
 	scala> import scala.annotation.tailrec
 	scala> @tailrec
 		def gcd(a: Int, b: Int): Int = if b==0 then a else gcd(b, a%b)
 
-If you try this method with a function thats not tail recursive, an error will be issued.
-This will help the runtime and can reduce stack overflows (normally get 2-3K recursive calls with JVM before an overflow)
+If you try this method with a function that not tail-recursive, an error will be issued.
+This will help the runtail reduce stack overflows (normally get 2-3K recursive calls with JVM before an overflow tail call 
 
-#### Exercise 1.7
-
-Design a tail recursive version of factorial:
+Exercise 1.6 recursive version of factorial:
 
 	scala> def factorial(n: Int): Int = 
 			@tailrec
