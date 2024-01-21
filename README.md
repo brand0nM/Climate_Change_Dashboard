@@ -24,14 +24,14 @@ Collected 2 csv from the [National Center for Environmental Information](https:/
 ### Raw Data Visualization - Visualization.scala
 3 algorithms we must create:
 
-1) **Spatial Interpolation**: 
+1) *Spatial Interpolation*: 
 To find the temperature at a coordinate not located at a weather station, we must interpolate its
 true distance around the earth
 
-3) **Linear Interpolation**:
+3) *Linear Interpolation*:
 To determine what color each pixel should be represented as.
 
-4) **Visualization**: 
+4) *Visualization*: 
 Now we'll build an image using Java's scrimage 
 
 ### Interactive visualization in a Web app - Interaction.scala
@@ -48,12 +48,23 @@ computed and displayed.
 This Module is used to Spatially interpret the temperature of what each pixel should be represented as.
 To do this we have to implement 2 methods
 
-1) **Average**: computes the average temperature of the tiles color representation 
-2) **Deviation**: computes the deviations from its normal temperature
+1) *Average*: computes the average temperature of the tiles color representation 
+2) *Deviation*: computes the deviations from its normal temperature
 
 ### Value-added information visualization - Visualization2.scala
+To speed up the load time of our application we must implement a new algorithm.
+Rather than using inverse distance weighting to calculate a tile value, we'll use 
+bilinear interpolation to weigh the value based on existing tiles. 
+
+### Interactive user interface - Interation2.scala
+To finish the GUI we'll allow the user the select between two layers called temperatures (average) or deviations.
+Then we'll add a legend giving the array of deviations- or temperatures- and their respective color representation.
+Finally, we'll add a slider that allows the user to select the year.
+To make the GUI reactive we'll store these variables in signals.
 
 ### Dashboard Demo
 ![Demo](https://github.com/brand0nM/Scala_Course/assets/79609464/b3954635-580a-405b-b179-60fe4e9ca618)
 
 ## Summary
+Using Only Scala we've made a web application that efficiently displays temperatures or deviations based on the
+user's selections. 
