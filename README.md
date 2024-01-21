@@ -21,6 +21,6 @@ Optimize large collections with Sparks RDDs, construct DataFrame for relational 
 Build a data-intensive weather dashboard allowing users to analyze climate change.
 
 ### About the Program
-A self-paced course, requiring students to submit 4-5 assignments for each topic. Modules are submitted through sbt submissions and are graded based on how well different algorithms are optimized.  
+A self-paced course, requiring students to submit 4-5 assignments for each topic. Modules are submitted through sbt and are graded on how well different algorithms compile.  
 
-[Course Work]("https://www.coursera.org/specializations/scala#outcomes")
+[Course Work](https://www.coursera.org/specializations/scala#outcomes)
